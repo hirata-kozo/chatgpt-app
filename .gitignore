@@ -15,7 +15,7 @@ npm-log/
 
 # TypeScript
 # TypeScriptコンパイラ（tsc）が生成するJavaScriptファイル
-*.js
+#*.js
 # ソースマップファイル
 *.js.map
 # コンパイルされた型定義ファイル
