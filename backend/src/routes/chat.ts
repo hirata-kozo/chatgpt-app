@@ -19,7 +19,7 @@ router.post("/", async (req, res) => {
 
     // OpenAI Chat API 呼び出し
     const completion = await openai.chat.completions.create({
-      model: "gpt-4o-mini", // 固定モデル
+      model: "gpt-5-mini", // 固定モデル
       messages: [{ role: "user", content: message }],
     });
 
