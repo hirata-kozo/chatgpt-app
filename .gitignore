@@ -1,0 +1,42 @@
+# Node.js
+# このディレクトリに `npm install` でインストールされるモジュール
+node_modules/
+# Node.jsが生成するデバッグ用のファイル
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# ロックファイル
+package-lock.json
+yarn.lock
+# その他のキャッシュやログファイル
+.npm/
+.yarn/
+npm-log/
+
+# TypeScript
+# TypeScriptコンパイラ（tsc）が生成するJavaScriptファイル
+*.js
+# ソースマップファイル
+*.js.map
+# コンパイルされた型定義ファイル
+*.d.ts
+# ts-nodeで生成されるキャッシュ
+.ts-node/
+
+# Docker
+# Dockerが生成する一時ファイルやイメージ
+.docker/
+docker-compose.yml.*
+Dockerfile.*
+# Docker Composeのログ
+docker-compose.log*
+# ビルド時に生成されるコンテナ内のファイル
+# 以下の例はコンテナ内部のパスのため、通常は.gitignoreには含めません。
+# コンテナ内部のパスを無視したい場合は、dockerignoreファイルを使用します。
+# 例: /app/dist/
+
+# 環境設定ファイル
+# 機密情報が含まれている可能性があるため、必ず無視します
+.env
+.env.*
+
