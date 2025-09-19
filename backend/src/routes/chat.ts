@@ -29,6 +29,7 @@ router.post("/", async (req, res) => {
 
     const context = docs.map(d => d.text).join("\n\n");
 
+    console.log("context", context);
     console.log("Calling OpenAI Chat API...");
     const completion = await openai.chat.completions.create({
       model: "gpt-5-mini",
@@ -36,14 +37,27 @@ router.post("/", async (req, res) => {
         {
           role: "system",
           content:
-            "あなたは S3 に保存された資料を参考に回答するアシスタントです。"
+            "あなたは、株式会社シャノンの情報セキュリティ担当者です。"
         },
         {
           role: "user",
-          content: `資料:\n${context}\n\n質問: ${userQuestion}`
+          content: `
+          あなたは、企業のSHANON MARKETING PLATFORMのセキュリティ担当者です。
+          下記資料を参考にして、質問にに200字以内でまとめて回答してください。
+          ただし、50文字以内で簡潔に回答できるものは、50文字以内で回答してください。
+          回答の文章は、簡潔で丁寧な表現にしてください。体言止めではなく、です、ます調で記述してください。
+          回答の文章は、Excelに記入するにふさわしい形式で回答してください。
+          質問や要求を復唱する必要はありません。回答のみ出力してください。
+          選択肢の質問は、指定がない限り、最も適切な選択肢のみ回答してください。
+
+	  資料:
+		  ${context}
+
+	  質問: ${userQuestion}
+	  `
         }
       ],
-      max_completion_tokens: 500 // ← 修正ポイント
+      max_completion_tokens: 5000 // ← 修正ポイント
     });
     console.log("OpenAI API called successfully");
 
