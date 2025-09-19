@@ -1,25 +1,31 @@
 {
   "name": "chatgpt-backend",
   "version": "1.0.0",
-  "description": "Backend for ChatGPT App",
   "main": "dist/index.js",
   "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
+    "seed": "ts-node src/seedS3Documents.ts"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.500.0",
     "express": "^4.18.2",
-    "openai": "^4.9.0",
+    "body-parser": "^1.20.2",
+    "openai": "^4.34.0",
+    "pdf-parse": "^1.1.1",
+    "node-xlsx": "^0.24.0",
+    "pptx-parser": "^1.0.0",
+    "better-sqlite3": "^8.4.0",
     "dotenv": "^16.3.1",
-    "cors": "^2.8.5"
+     "cors": "^2.8.5"
   },
   "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.4.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2",
-    "ts-node": "^10.9.1",
-    "@types/node": "^20.5.1",
-    "@types/express": "^4.17.19",
-    "@types/cors": "^2.8.17"
+    "@types/cors": "^2.8.12"
   }
 }
 
