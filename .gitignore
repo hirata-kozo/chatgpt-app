@@ -40,3 +40,5 @@ docker-compose.log*
 .env
 .env.*
 
+backend/dist/
+frontend/dist/
